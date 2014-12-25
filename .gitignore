@@ -1,0 +1,14 @@
+# IDEA
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# Gradle
+out/
+build/
+.gradle/
+
+# Windows
+Thumbs.db
+*.zip
