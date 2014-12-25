@@ -1,0 +1,108 @@
+
+.strike {
+    text-decoration: line-through;
+}
+
+.cover h2 {
+    /*text-shadow: 4px 4px 2px rgba(55, 55, 55, 1);*/
+    margin: 30px 0 0;
+    text-align: center;
+    font-size: 70px;
+}
+
+.slide div {
+    padding-top: 55px;
+    height: 585px;
+}
+
+.slide ol, .slide ul {
+    margin: 0 0 30px;
+    counter-reset: list;
+}
+
+.slide pre {
+    overflow: auto;
+    font-size: 70%;
+    margin-bottom: 20px;
+    background: rgba(0, 0, 0, .07);
+    padding: 0 8px;
+    border-radius: 8px;
+}
+
+.slide pre code {
+    line-height: 1.2;
+    padding: 7px 0;
+}
+
+.slide p {
+    line-height: 1.5;
+    margin-bottom: 25px;
+}
+
+.slide p.note {
+    margin-top: 15px;
+}
+
+.slide blockquote + figcaption {
+    margin-top: -30px;
+}
+
+.slide.shout h2 {
+    top: calc((100% - 150px) / 2);
+}
+
+.slide img {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.overlay iframe {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.overlay .overlay-close {
+    width: 20px;
+    height: 20px;
+    right: 7px;
+    top: 7px;
+}
+
+.container {
+    background-color: transparent;
+}
+
+h3 {
+    font-weight: bold;
+}
+
+#trigger-overlay {
+    display: none;
+}
+
+.cover {
+    text-shadow: 1px 1px 7px rgba(40, 40, 40, 0.92);
+}
+
+.cover h2 {
+    color: #FFF;
+    text-align: center;
+    font-size: 3.5em;
+}
+
+#Cover p a {
+    color: #FFF;
+}
+
+#Cover p {
+    margin: 10px 0 0;
+    text-align: center;
+    color: #fff;
+    font-style: italic;
+    font-size: 20px;
+    position: absolute;
+    bottom: 7%;
+    right: 7%;
+}
