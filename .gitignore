@@ -12,3 +12,6 @@ build/
 # Windows
 Thumbs.db
 *.zip
+
+# Sublime
+*.sublime*
