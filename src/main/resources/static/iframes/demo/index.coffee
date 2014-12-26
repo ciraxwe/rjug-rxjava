@@ -15,6 +15,9 @@ TEXT_MATERIAL = new THREE.MeshFaceMaterial [
   new THREE.MeshPhongMaterial(color: 0x880000, shading: THREE.SmoothShading)
 ]
 
+FONT_SETTINGS =
+  font: "droid serif", weight: "bold", size: 0.3, height: 0.1
+
 # Model
 # -----------------------------------------------------------------------------
 
@@ -35,8 +38,8 @@ class Comic
     texture = THREE.ImageUtils.loadTexture @thumbnail
     material = new THREE.MeshLambertMaterial map: texture, side: THREE.DoubleSide, transparent: true
     @mesh = new THREE.Mesh new THREE.PlaneGeometry(1, 1.4, 1, 1), material
-    @priceMesh = new THREEx.Text "$#{@price}", font: "droid serif", weight: "bold", size: .1, height: 0, TEXT_MATERIAL
-    @priceMesh.position.y = -.9
+    @priceMesh = new THREEx.Text "$#{@price}", _.extend({}, FONT_SETTINGS, size: 0.1, height: 0), TEXT_MATERIAL
+    @priceMesh.position.y = -0.9
 
 # Game
 class Game
@@ -52,26 +55,26 @@ class Game
     @charactersGroup.position.y -= 1.5
 
     # Add ons
-    text = new THREEx.Text 'Add Ons', font: "droid serif", weight: "bold", size: .3, height: .2, TEXT_MATERIAL
+    text = new THREEx.Text 'Add Ons', _.extend({}, FONT_SETTINGS, height: 0.2), TEXT_MATERIAL
     text.position.y = 0.8
     text.position.z = .4
     @comicsGroup.add text
 
   text: ->
-    select = new THREEx.Text 'Select', font: "droid serif", weight: "bold", size: .3, height: .1, TEXT_MATERIAL
+    select = new THREEx.Text 'Select', FONT_SETTINGS, TEXT_MATERIAL
     select.position.x = 1.2
     select.position.y = 3.5
     select.position.z = 1
     @charactersGroup.add select
 
-    your = new THREEx.Text 'your', font: "droid serif", weight: "bold", size: .3, height: .1, TEXT_MATERIAL
+    your = new THREEx.Text 'your', FONT_SETTINGS, TEXT_MATERIAL
     your.position.y = -.8
     your.position.z = 1
     your.position.x = .5
     your.rotation.y -= 0.2
     @charactersGroup.add your
 
-    player = new THREEx.Text 'player', font: "droid serif", weight: "bold", size: .3, height: .1, TEXT_MATERIAL
+    player = new THREEx.Text 'player', FONT_SETTINGS, TEXT_MATERIAL
     player.position.y = -.8
     player.position.x = 1.8
     player.position.z = 1
@@ -80,7 +83,7 @@ class Game
 
   start: ->
     $.get 'index.json', (data) =>
-      json = eval data
+      json = _.shuffle eval data
       @characters = for c in json
         new Character(c.id, c.name, c.thumbnail, new Comic(c.comic.title, c.comic.thumbnail, c.comic.price))
 
@@ -176,7 +179,7 @@ scene.add dirLight
 
 # Renderer
 renderer = if Detector.webgl then new THREE.WebGLRenderer antialias: true else new THREE.CanvasRenderer()
-renderer.setClearColor new THREE.Color(0x111111), .5
+renderer.setClearColor new THREE.Color(0x111111), 1
 renderer.setSize SCREEN_WIDTH, SCREEN_HEIGHT
 onRenderFcts = []
 

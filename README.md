@@ -4,6 +4,8 @@ This is the code of my presentation RxJava - Functional Reactive Programming at 
 
 A static presentation is available [here](http://ciraxwe.github.io/rjug-rxjava). The code examples will not work since they require the application to execute the code. The Marvel API [demo](http://ciraxwe.github.io/rjug-rxjava/iframes/demo/index.html) uses local resources and does not connect to the API.
 
+The presentation was tested on FireFox 34, IE 10 and Chrome 39.
+
 ## Building and Running
 
 It is a Spring boot application. The project uses Gradle 2.2 as build tool. To generate the JAR file execute.
